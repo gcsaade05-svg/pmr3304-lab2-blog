@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Novo post
+{% endblock title %}
+
+{% block content %}
+<div class="card p-4">
+    <h2>Criar Novo Post</h2>
+    <form method="post" action="{% url 'blog:create' %}">
+        {% csrf_token %}
+        <p>
+            <label for="id_title">Título:</label>
+            <input type="text" name="title" id="id_title" />
+        </p>
+        <p>
+            <label for="id_content">Conteúdo (HTML):</label>
+            <textarea name="content" id="id_content"></textarea>
+        </p>
+        <button class="btn btn-primary" type="submit">Criar</button>
+    </form>
+</div>
+{% endblock content %}

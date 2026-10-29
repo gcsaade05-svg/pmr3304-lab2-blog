@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post.title }}
+{% endblock title %}
+
+{% block content %}
+<article class="card p-4">
+    <h2>{{ post.title }}</h2>
+    <p class="text-muted">Publicado em {{ post.pub_date|date:"d/m/Y \à\s H:i" }}</p>
+    <section class="conteudo-post">
+        {{ post.content|safe }}
+    </section>
+    <ul class="list-inline mt-3 mb-0">
+        <li class="list-inline-item"><a class="btn btn-outline-secondary" href="{% url 'blog:update' post.id %}">Editar</a></li>
+        <li class="list-inline-item"><a class="btn btn-outline-danger" href="{% url 'blog:delete' post.id %}">Apagar</a></li>
+        <li class="list-inline-item"><a href="{% url 'blog:index' %}">Voltar para a lista</a></li>
+    </ul>
+</article>
+{% endblock content %}

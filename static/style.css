@@ -1,0 +1,279 @@
+/* Pit Stop: visual 8 bits inspirado nos jogos de corrida antigos.
+   Fundo de asfalto à noite, bordas de pixel, sombras duras e a bandeira quadriculada. */
+
+/* Paleta */
+:root {
+    --asfalto: #15151f;
+    --painel: #23233a;
+    --painel-claro: #2f2f4d;
+    --texto: #f2f0e6;
+    --apagado: #a3a3c2;
+    --vermelho: #e63946;
+    --amarelo: #ffd23f;
+    --verde: #3ddc84;
+    --azul: #4cc9f0;
+    --preto: #000000;
+    --pixel: 4px;
+}
+
+/* Página */
+body {
+    background-color: var(--asfalto);
+    /* linhas de varredura de tela antiga */
+    background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 4px);
+    color: var(--texto);
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    line-height: 1.25;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand, .btn, .badge {
+    font-family: 'Press Start 2P', monospace;
+}
+
+h2 {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--amarelo);
+    text-shadow: 3px 3px 0 var(--vermelho);
+}
+
+h3 {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--amarelo);
+}
+
+h5 {
+    font-size: 0.75rem;
+    color: var(--azul);
+    margin-top: 1rem;
+}
+
+a {
+    color: var(--azul);
+}
+
+a:hover {
+    color: var(--amarelo);
+}
+
+#conteiner-principal {
+    max-width: 820px;
+    padding-bottom: 2rem;
+}
+
+.text-muted {
+    color: var(--apagado) !important;
+}
+
+/* Cabeçalho */
+#cabecalho-principal {
+    background-color: var(--vermelho);
+    border-bottom: var(--pixel) solid var(--preto);
+    padding: 0.75rem 0;
+}
+
+.navbar-brand {
+    color: var(--texto) !important;
+    font-size: 1rem;
+    text-shadow: 3px 3px 0 var(--preto);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* quadradinho de bandeira ao lado do nome */
+.bandeira {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--preto);
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+}
+
+.nav-link {
+    color: var(--texto) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link:hover {
+    color: var(--amarelo) !important;
+}
+
+.faixa-quadriculada {
+    height: 16px;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+    border-bottom: var(--pixel) solid var(--preto);
+}
+
+/* Caixas com bordas de pixel (cantos recortados com box-shadow) */
+.card, .list-group {
+    background-color: var(--painel);
+    color: var(--texto);
+    border: none;
+    border-radius: 0;
+    margin: var(--pixel);
+    box-shadow:
+        0 calc(-1 * var(--pixel)) 0 0 var(--preto),
+        0 var(--pixel) 0 0 var(--preto),
+        calc(-1 * var(--pixel)) 0 0 0 var(--preto),
+        var(--pixel) 0 0 0 var(--preto),
+        var(--pixel) calc(2 * var(--pixel)) 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.list-group-item {
+    background-color: var(--painel);
+    color: var(--texto);
+    border: none;
+    border-bottom: 2px dashed var(--painel-claro);
+    border-radius: 0 !important;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item-action:hover {
+    background-color: var(--painel-claro);
+    color: var(--amarelo);
+}
+
+.list-group-item .fw-semibold {
+    font-size: 1.6rem;
+}
+
+/* Botões */
+.btn {
+    font-size: 0.65rem;
+    border-radius: 0;
+    border: 3px solid var(--preto);
+    box-shadow: 3px 3px 0 var(--preto);
+    padding: 0.7rem 0.9rem;
+}
+
+.btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.btn-primary:hover {
+    background-color: var(--amarelo);
+    border-color: var(--preto);
+    color: var(--preto);
+}
+
+.btn-danger, .btn-outline-danger {
+    background-color: var(--vermelho);
+    border-color: var(--preto);
+    color: var(--texto);
+}
+
+.btn-danger:hover, .btn-outline-danger:hover {
+    background-color: #b5202c;
+    border-color: var(--preto);
+    color: var(--texto);
+}
+
+.btn-outline-secondary {
+    background-color: var(--painel-claro);
+    border-color: var(--preto);
+    color: var(--texto);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--azul);
+    border-color: var(--preto);
+    color: var(--preto);
+}
+
+/* Etiquetas de categoria */
+.badge {
+    font-size: 0.55rem;
+    border-radius: 0;
+    border: 2px solid var(--preto);
+    padding: 0.45rem 0.55rem;
+}
+
+.text-bg-secondary {
+    background-color: var(--amarelo) !important;
+    color: var(--preto) !important;
+}
+
+.text-bg-secondary:hover {
+    background-color: var(--verde) !important;
+}
+
+/* Conteúdo do post */
+.conteudo-post img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+    border: var(--pixel) solid var(--preto);
+}
+
+.conteudo-post strong {
+    color: var(--amarelo);
+}
+
+.conteudo-post code {
+    color: var(--verde);
+}
+
+.conteudo-post ul {
+    list-style: square;
+}
+
+/* Formulários */
+form p label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--amarelo);
+}
+
+form p input,
+form p textarea,
+form p select {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    background-color: var(--asfalto);
+    color: var(--texto);
+    border: 3px solid var(--preto);
+    border-radius: 0;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+}
+
+form p input:focus,
+form p textarea:focus,
+form p select:focus {
+    outline: 3px solid var(--amarelo);
+}
+
+form p textarea {
+    min-height: 16rem;
+}
+
+.errorlist {
+    color: var(--vermelho);
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Rodapé */
+#rodape-principal {
+    color: var(--apagado);
+    padding-bottom: 1rem;
+}

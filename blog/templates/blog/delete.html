@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Apagar post
+{% endblock title %}
+
+{% block content %}
+<div class="card p-4">
+    <h2>Apagar Post</h2>
+    <form action="{% url 'blog:delete' post.id %}" method="post">
+        {% csrf_token %}
+        <p>Você tem certeza que deseja apagar o post "{{ post.title }}"?</p>
+        <button class="btn btn-danger" type="submit">Apagar</button>
+        <a class="btn btn-outline-secondary" href="{% url 'blog:detail' post.id %}">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}
