@@ -277,3 +277,19 @@ form p textarea {
     color: var(--apagado);
     padding-bottom: 1rem;
 }
+
+/* Comentários */
+.comentario {
+    border-left: var(--pixel) solid var(--azul);
+    background-color: var(--painel-claro);
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.comentario blockquote {
+    margin-bottom: 0.25rem;
+}
+
+.form-comentario textarea {
+    min-height: 8rem;
+}

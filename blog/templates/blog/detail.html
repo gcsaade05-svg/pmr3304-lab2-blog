@@ -17,4 +17,25 @@
         <li class="list-inline-item"><a href="{% url 'blog:index' %}">Voltar para a lista</a></li>
     </ul>
 </article>
+
+<section class="card p-4 mt-4">
+    <header>
+        <h3>Comentários</h3>
+    </header>
+    {% if post.comment_set.all %}
+        {% for comment in post.comment_set.all %}
+            <figure class="comentario">
+                <blockquote class="mb-1">{{ comment.text }}</blockquote>
+                <figcaption class="text-muted small">
+                    {{ comment.author }} em {{ comment.pub_date|date:"d/m/Y \à\s H:i" }}
+                </figcaption>
+            </figure>
+        {% endfor %}
+    {% else %}
+        <p>Ainda não existe nenhum comentário para este post.</p>
+    {% endif %}
+    <p class="mb-0">
+        <a class="btn btn-primary" href="{% url 'blog:comment' post.id %}">Comentar</a>
+    </p>
+</section>
 {% endblock content %}
