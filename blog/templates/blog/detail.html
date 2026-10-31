@@ -34,5 +34,8 @@
     {% else %}
         <p>Ainda não existe nenhum comentário para este post.</p>
     {% endif %}
+    <p class="mb-0">
+        <a class="btn btn-primary" href="{% url 'blog:comment' post.id %}">Comentar</a>
+    </p>
 </section>
 {% endblock content %}

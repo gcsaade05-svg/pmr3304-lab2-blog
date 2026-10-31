@@ -289,3 +289,7 @@ form p textarea {
 .comentario blockquote {
     margin-bottom: 0.25rem;
 }
+
+.form-comentario textarea {
+    min-height: 8rem;
+}
