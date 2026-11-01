@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Posts
+{% if category %}{{ category.name }}{% else %}Posts{% endif %}
 {% endblock title %}
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
+    {% if category %}
+    <h2 class="mb-0">Posts da Categoria "{{ category.name }}"</h2>
+    {% else %}
     <h2 class="mb-0">Todos os Posts</h2>
+    {% endif %}
     <a class="btn btn-primary" href="{% url 'blog:create' %}">Novo post</a>
 </div>
+{% if category %}
+<p class="text-muted">{{ category.description }}</p>
+{% endif %}
 
 {% if post_list %}
 <div class="list-group">
@@ -20,6 +27,6 @@ Posts
     {% endfor %}
 </div>
 {% else %}
-<p>Nenhum post publicado ainda.</p>
+<p>{% if category %}Nenhum post nesta categoria.{% else %}Nenhum post publicado ainda.{% endif %}</p>
 {% endif %}
 {% endblock content %}

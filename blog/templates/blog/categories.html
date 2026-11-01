@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Categorias
+{% endblock title %}
+
+{% block content %}
+<h2 class="mb-3">Categorias</h2>
+
+{% if category_list %}
+<div class="list-group">
+    {% for category in category_list %}
+    <a class="list-group-item list-group-item-action py-3" href="{% url 'blog:category' category.id %}">
+        <div class="fw-semibold">{{ category.name }}</div>
+        <small class="text-muted">{{ category.description }}</small>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p>Nenhuma categoria cadastrada ainda.</p>
+{% endif %}
+{% endblock content %}
