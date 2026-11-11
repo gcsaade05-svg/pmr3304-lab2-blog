@@ -1,6 +1,6 @@
-# Blog em Django (PMR3304, 2ª entrega de laboratório)
+# Pit Stop (PMR3304, 2ª entrega de laboratório)
 
-Blog com CRUD de posts, comentários e categorias, feito em Django para a segunda entrega de laboratório de PMR3304.
+Blog de notícias e opiniões sobre automobilismo (F1, WEC e WRC), com CRUD de posts, comentários e categorias, feito em Django para a segunda entrega de laboratório de PMR3304.
 
 ## Como rodar
 
@@ -20,6 +20,7 @@ Acesse http://127.0.0.1:8000/ para o blog e http://127.0.0.1:8000/admin/ para o 
 1. **Parte 1:** CRUD de posts. As três versões das views estão em commits separados: views funcionais sem forms, views funcionais com `PostForm` e views com classes genéricas.
 2. **Parte 2:** comentários, desenvolvidos no branch `comments`.
 3. **Parte 3:** categorias, desenvolvidas no branch `categories`.
+4. **Parte 4:** consultas SQL sobre o banco, em `sql/consultas.sql`. O `db.sqlite3` usado nas consultas não é versionado e foi entregue no Moodle.
 
 ## Implantação no Render
 
